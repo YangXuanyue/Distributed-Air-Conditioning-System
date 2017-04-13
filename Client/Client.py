@@ -1,4 +1,7 @@
 from flask import Flask
+from Client.simulate import *
+import Client.data as data
+
 
 app = Flask(__name__)
 
@@ -9,4 +12,5 @@ def hello_world():
 
 
 if __name__ == '__main__':
+    data.init()
     app.run()
