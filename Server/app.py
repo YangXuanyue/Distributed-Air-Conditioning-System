@@ -2,9 +2,9 @@ import flask
 import threading
 import subprocess
 from simulate import *
+import data
 
 app = flask.Flask(__name__)
-
 
 def get_ip():
     return subprocess.Popen(
@@ -17,12 +17,19 @@ def get_ip():
         stdout=subprocess.PIPE
     ).stdout.read().strip().decode('utf8')
 
+host = get_ip()
+port = '5000'
+
 
 @app.route("/")
 def index():
-    return "hello"
+    global host, port
+    return flask.render_template("index.html", host=host, port=port)
 
 
+@app.route("/connect", methods=['POST'])
+def on_connect():
+    pass
 
 if __name__ == '__main__':
     simulate = threading.Thread(
@@ -30,4 +37,4 @@ if __name__ == '__main__':
         name="simulate"
     ).start()
 
-    app.run(host=get_ip(), port='5000')
+    app.run(host=host, port=port)
