@@ -1,0 +1,90 @@
+<nav class="navbar navbar-fixed-top navbar-inverse">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="#/setting">设置</a></li>
+                <li><a href="#/analyse">查看报表</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#/">用户 {{vm.user.username}}, 您好!</a></li>
+                <li><a href="#/" ng-click="vm.logout()">退出</a></li>
+            </ul>
+        </div>
+        <!-- /.nav-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<!-- /.navbar -->
+<div class="row">
+    <div  class="col-md-12 col-sm-12 col-xs-12">
+        <div class="alert alert-info">
+            <p>
+                工作模式： {{vm.commonSetting.mode}}
+            </p>
+            <button>更改</button>
+            <div ng-show="room.mode.changing = 'true' ">
+                <div>
+                    <form ng-submit="vm.">
+                    </form>
+                </div>
+                <hr />
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div  class="col-md-12 col-sm-12 col-xs-12">
+        <div class="alert alert-info">
+            <p>
+                最高温度： {{vm.commonSetting.highTemp}}
+            </p>
+            <p>
+                最低温度：{{vm.commonSetting.lowTemp}}
+            </p>
+            <p>
+                默认初始目标温度: {{vm.commonSetting.defaultTemp}}
+            </p>
+            <button>更改</button>
+            <div ng-show="room.mode.changing = 'true' ">
+                <div>
+                    <form ng-submit="vm.">
+                    </form>
+                </div>
+                <hr />
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div  class="col-md-12 col-sm-12 col-xs-12">
+        <div class="alert alert-info">
+            <p>
+                标准功率每分钟计费： {{vm.commonSetting.pricePerMin}}
+            </p>
+            <p>
+                高风速费率：{{vm.commonSetting.highSpeed}}
+            </p>
+            <p>
+                中等风速费率:{{vm.commonSetting.midSpeed}}
+            </p>
+            <p>
+                低风俗费率:{{vm.commonSetting.lowSpeed}}
+            </p>
+            <button>更改</button>
+            <div ng-show="room.mode.changing = 'true' ">
+                <div>
+                    <form ng-submit="vm.">
+                    </form>
+                </div>
+                <hr />
+            </div>
+        </div>
+    </div>
+</div>
