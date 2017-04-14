@@ -3,32 +3,28 @@ import time
 
 MINOR_TIME_SLOT = 0.02
 
-open_flags = [True, True, True, True]
-runnings = [0, 1, 3]
-waitings = [2]
 insts_queue = []
 insts = []
 rooms = []
 
+# room_id is to be dispatched, the others are running
 
-def dispatch(runnings, status):
+def dispatch(room_id, rooms):
     pass
-    return runnings, status
+    return
 
-
-def fetch_insts(runnings, waitings, insts_queue):
+def fetch_insts(inst_queue):
     pass
     return insts, hangs
 
-
-def exec_inst(inst, status):
+def exec_inst(inst, rooms):
     pass
     return
 
 def trans_status(room):
     if room.status = 'free':
         # free -> running
-        if count_run_status < 3:
+        if count_run_status() < 3:
             room.status = 'running'
         # free -> hang
         else:
@@ -37,16 +33,14 @@ def trans_status(room):
         # hang -> hang
         dispatch(room)
     else:
-        # running -> running
         # running -> hang
-        dispatch(room)
-
+        if count_run_status() > 3:
+            dispatch(room)
 
 def is_same_tmp(tmp1, tmp2):
     if abs(tmp1 - tmp2) < 1e-4:
         return True
     return False
-
 
 def simulate():
     while True:
@@ -70,4 +64,5 @@ def simulate():
                 room.sim()
             if is_same_tmp(room.target_tmp, room.cur_tmp):
                 room.status = 'free'
+                find_hang_room().set(status='running')
         time.sleep(MINOR_TIME_SLOT)
