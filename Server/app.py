@@ -29,7 +29,7 @@ def index():
 
 @app.route("/connect", methods=['POST'])
 def on_connect():
-    pass
+    connect = flask.request.get_json()
 
 if __name__ == '__main__':
     simulate = threading.Thread(
