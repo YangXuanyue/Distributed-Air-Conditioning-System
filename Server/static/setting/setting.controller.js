@@ -57,7 +57,7 @@
                         vm.defaultTemp = data.defaultTemp;
                         
                         vm.lowSpeed = data.lowSpeed;
-                        vm.midSpeed = daa.midSpeed;
+                        vm.midSpeed = data.midSpeed;
                         vm.highSpeed = data.highSpeed;
 
                         vm.pricePerMin = data.pricePerMin;

@@ -10,7 +10,7 @@
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
                 <li><a href="#/setting">设置</a></li>
-                <li><a href="#/analyse">查看报表</a></li>
+                <li><a ng-click="vm.analyze()">查看账单</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="#/">用户 {{vm.user.username}}, 您好!</a></li>
@@ -23,12 +23,14 @@
 </nav>`
 <!-- /.navbar -->
 <div class="row">
-    <div ng-repeat ="room in RoomState.rooms" class="col-md-6 col-sm-6 col-xs-6">
+    <div ng-repeat ="room in vm.RoomState.rooms" class="col-md-6 col-sm-6 col-xs-6">
         <div class="alert alert-info">
-            <h4>f</h4>
             <hr />
-            <div ng-show="room.curState = 'on'"> 
+            <div>
             <i class="fa fa-warning fa-4x"></i>
+                <p>
+                    房间号：　{{ room.roomId }}
+                </p>
             <p>
             	当前温度： {{room.curTemp}}
             </p>
@@ -38,11 +40,10 @@
             <p>
                当前风速 ： {{room.curSpeed}}
             </p>
+                <p> 当前状态：{{room.curState}}</p>
             </div>
-            <div ng-show="room.curState = 'off'">
-            <p> 当前状态：关机 </p>
+
             <hr />
-            <a href="#" class="btn btn-info">Read Full Detalis</a>
         </div>
     </div>
 </div>

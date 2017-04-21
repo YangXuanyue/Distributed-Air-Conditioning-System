@@ -12,12 +12,25 @@
         var vm = this;
         vm.user = $rootScope.globals.currentUser;
         vm.logout = logout;
+        vm.analyze = analyze;
+        $interval(function() {
+            roomMaintain();
+        }, 100);
 
         (function init() {
             buildStates();
             initState();
-            var timer = $interval(roomMaintain(), 5000);
+            // var timer = $interval(roomMaintain(), 100);
         })();
+
+
+        function analyze() {
+            RoomService.show_log()
+                .then(function (response) {
+                    var state = response.data;
+                    console.log(state);
+                });
+        }
 
         function buildStates() {
             var RoomState = {};
@@ -34,6 +47,7 @@
             RoomService.getRooms()
                 .then(function (response) {
                     var state = response.data;
+                    //console.log(state);
                     setRooms(state);
                 });
 
@@ -48,17 +62,21 @@
         }
 
         function roomMaintain() {
+            console.log("maintain");
             RoomService.getRooms()
                 .then(function (response) {
                     var state = response.data;
-                    setRooms(state);
+                    console.log(state);
+                    setRooms(state.data);
                 });
 
             function setRooms(room) {
                 vm.RoomState.rooms = room;
+                console.log(vm.RoomState.rooms);
             }
         }
     }
 
 })();
+
 

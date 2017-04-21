@@ -41,7 +41,7 @@
         if (user) {
             AuthenticationService.Login(user.userName,user.password)
                 .then(function(res) {
-                    AuthenticationService.SetCredentials(user.username,password);
+                    AuthenticationService.SetCredentials(user.username, user.password);
                     $location.path('/home');
                 });  
         }

@@ -1,0 +1,12 @@
+Room 1
+
+Room 2
+
+Room 3
+
+Room 4
+
+Total Fee of Room 1: 0.0
+Total Fee of Room 2: 0.0
+Total Fee of Room 3: 0.0
+Total Fee of Room 4: 0.0

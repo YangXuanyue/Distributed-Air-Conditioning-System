@@ -16,8 +16,8 @@
         function getInitCommonSetting() {
             return $http.post('/get_init', {
             }).then(handleSuccess, handleError('Error getInitCommonService'));
-            //　返回ｊｓｏｎ如下：
-            // ｛　mode　: mode, lowTemp : lowTemp, highTemp : highTemp, defaultTemp : defaultTemp,
+            //　返回json如下：
+            // ｛　mode: mode, lowTemp : lowTemp, highTemp : highTemp, defaultTemp : defaultTemp,
             //    lowSpeed : lowSpeed, midSpeed : midSpeed, highSpeed : highSpeed. pricePerMin : pricePerMin };
         }
 

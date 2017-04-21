@@ -16,7 +16,7 @@
         return service;
 
         function Login(username, password) {
-            return $http.post('/valid', {
+            return $http.post('http://' + $rootScope.getUrl + '/valid', {
                     userName: username,
                     password: password
                     },{

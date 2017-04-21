@@ -8,8 +8,12 @@
     function RoomService($http, $rootScope) {
         var service = {};
         service.getRooms = getRooms;
+        service.show_log = show_log;
         return service;
-        
+
+        function show_log() {
+            $http.post('/show_log', {}).then(handleSuccess, handleError('Error getRooms'));
+        }
         function getRooms() {
             return $http.post('/get_rooms', {
             }).then(handleSuccess, handleError('Error getRooms'));
